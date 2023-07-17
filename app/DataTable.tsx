@@ -1,5 +1,6 @@
 "use client";
-import { Box, Table, Thead, Tbody, Tr, Th, Td, Text } from "@chakra-ui/react";
+import { Table, Thead, Tbody, Tr, Th, Td, TableContainer} from "@chakra-ui/table";
+import { Box, Text } from "@chakra-ui/react";
 import { useState } from "react";
 
 interface DataTableProps {
@@ -43,33 +44,36 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
   });
   
   return (
-    <Box>
+    <Box className="bx">
       {caption && <Text fontWeight="bold">{caption}</Text>}
-      <Table variant="simple">
-        <Thead>
-          <Tr>
+      <TableContainer className="tc">
+      <Table variant='striped' colorScheme='teal' className="table">
+        <Thead className="head">
+          <Tr className="Trw">
             {headers.map((header, index) => (
               <Th
                 key={index}
                 onClick={() => handleSort(header)}
                 cursor={sortable ? "pointer" : "default"}
                 _hover={sortable ? { textDecoration: "underline" } : {}}
+                className="Thead"
               >
                 {header}
               </Th>
             ))}
           </Tr>
         </Thead>
-        <Tbody>
+        <Tbody className="tbdy">
           {sortedRows.map((row, rowIndex) => (
-            <Tr key={rowIndex}>
+            <Tr key={rowIndex} className="tr">
               {row.map((cell, cellIndex) => (
-                <Td key={cellIndex}>{cell}</Td>
+                <Td key={cellIndex} className="td">{cell}</Td>
               ))}
             </Tr>
           ))}
         </Tbody>
       </Table>
+      </TableContainer>
     </Box>
   );
 };

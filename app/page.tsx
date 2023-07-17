@@ -1,25 +1,28 @@
 "use client";
 import React from 'react';
 import DataTable from './DataTable';
-import { Box, Flex, Heading } from '@chakra-ui/react';
+import {Flex} from '@chakra-ui/react';
 
 import "./App.css";
 
-const headers = ["Timestamp", "Purchase Id", "Mail", "Name", "Source", "Status", "Select"];
+const headers = ["TIMESTSMP", "PURCHASE ID", "MAIL", "NAME", "SOURCE", "STATUS", "SELECT"];
 const rows = [
-  ["Value 1", "Value 2", "Value 3", "Value 4", "Value 5", "Value 6", "Value 7"],
-  ["Value 8", "Value 9", "Value 10", "Value 11", "Value 12", "Value 13", "Value 14"],
+  ["2023-07-01", "123", "example@mail.com", "John Doe", "Website", "Completed", "Select"],
+  ["2023-07-02", "456", "test@mail.com", "Jane Smith", "Mobile App", "Pending", "Select"],
+  ["2023-07-01", "123", "example@mail.com", "John Doe", "Website", "Completed", "Select"],
+  ["2023-07-02", "456", "test@mail.com", "Jane Smith", "Mobile App", "Pending", "Select"],
+  ["2023-07-01", "123", "example@mail.com", "John Doe", "Website", "Completed", "Select"],
+  ["2023-07-02", "456", "test@mail.com", "Jane Smith", "Mobile App", "Pending", "Select"],
+  ["2023-07-01", "123", "example@mail.com", "John Doe", "Website", "Completed", "Select"],
+  ["2023-07-02", "456", "test@mail.com", "Jane Smith", "Mobile App", "Pending", "Select"],
   // Add more rows as needed
 ];
 
 const Home: React.FC = () => {
   return (
-    <Box p={4}>
-    <Flex justify="center" align="center" direction="column" h="100vh">
-      <Heading mb={4}>DataTable Example</Heading>
+    <Flex className='flex'  h="100vh">
       <DataTable headers={headers} rows={rows} caption="Bookings" sortable />
     </Flex>
-  </Box>
   )
 }
 

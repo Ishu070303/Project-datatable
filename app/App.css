@@ -3,3 +3,52 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
+
+.bx{
+    /* border: 2px solid black; */
+}
+
+.flex{
+    /* border: 2px solid black; */
+}
+
+.tc{
+    /* border: 2px solid black; */
+    width: 97.7vw;
+}
+
+.table{
+    border: 2px solid black;
+    width: 97.7vw;
+    height: 40vw;
+}
+
+.Trw{
+    /* width: 97.7vw; */
+}
+
+.Thead{
+    border: 2px solid black;
+    text-align: center;
+    padding: 10px;
+    font-weight: 1000;
+    color: gray;
+}
+
+.tbdy{
+    border: 2px solid black;
+}
+
+.tr{
+    border: 2px solid black;
+}
+
+.td{
+    border: 2px solid black;
+    text-align: center;
+}
+
+.line{
+    border: 1px solid black;
+    /* width: 97.7vw; */
+}
