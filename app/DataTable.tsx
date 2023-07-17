@@ -1,3 +1,4 @@
+"use client";
 import { Box, Table, Thead, Tbody, Tr, Th, Td, Text } from "@chakra-ui/react";
 import { useState } from "react";
 

@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import DataTable from './DataTable';
 import { Box, Flex, Heading } from '@chakra-ui/react';
