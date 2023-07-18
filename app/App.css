@@ -7,7 +7,7 @@
 
 .flex{
     /* border: 1px solid #ebf8ff; */
-    width: 70vw;
+    width: 80vw;
     margin: auto;
     background-color: white;
     margin-top: 3rem;
@@ -18,7 +18,7 @@
 
 .tc{
     /* border: 2px solid black; */
-    width: 70vw;
+    width: 80vw;
 }
 
 .table{
@@ -77,5 +77,4 @@
 .typo{
     font-size: 20px;
     font-weight: bold;
-
 }

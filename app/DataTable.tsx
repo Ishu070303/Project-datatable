@@ -45,6 +45,7 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
     );
   };
 
+  //For sorted rows by (Ascending or Descending Ways)
   const sortedRows = [...filterRows()].sort((a, b) => {
     if (!sortedColumn) return 0;
   
@@ -62,6 +63,8 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
     return 0;
   });
 
+
+  //For paginated Property
   const paginateRows = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -111,9 +114,24 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
           {paginateRows().map((row, rowIndex) => (
             <Tr key={rowIndex} className="tr">
               {row.map((cell, cellIndex) => (
-                <Td key={cellIndex} className="td">{
-                   cell
-                }</Td>
+                <Td key={cellIndex} className="td">
+                  {headers[cellIndex] == "STATUS" ? (
+                    <Button
+                    color="White"
+                    colorScheme={cell === "Paid" ? "green" : cell === "Failed"? "red" : "yellow"}
+                    size="sm"
+                    borderRadius="3xl"
+                    >
+                      {cell}
+                    </Button>
+                  ) : headers[cellIndex] === "SELECT" ? (
+                    <Button colorScheme="blue" size="sm" borderRadius="md">
+                      {cell}
+                    </Button>
+                  ) : (
+                    cell
+                  )}
+                </Td>
               ))}
             </Tr>
           ))}
