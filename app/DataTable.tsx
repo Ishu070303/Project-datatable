@@ -1,6 +1,6 @@
 "use client";
 import { Table, Thead, Tbody, Tr, Th, Td, TableContainer} from "@chakra-ui/table";
-import { Box, Flex, Input, InputGroup, InputLeftElement, Spacer, Text } from "@chakra-ui/react";
+import { Box, Flex, Input, InputGroup, InputLeftElement, Spacer, Text, Button } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 
@@ -9,7 +9,7 @@ interface DataTableProps {
   rows: (string | JSX.Element)[][];
   caption?: string;
   sortable?: boolean;
-  pagination?: boolean;
+  pagination?: boolean; //Adding a pagination property
   searchable?: boolean; //Adding a searchable property
 }
 
@@ -17,6 +17,11 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
   const [sortedColumn, setSortedColumn] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [searchValue, setSearchValue] = useState("");
+
+  //For pagination 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5) // set the number of items per page
+
 
   const handleSort = (column: string) => {
     if (!sortable) return;
@@ -57,6 +62,12 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
     return 0;
   });
 
+  const paginateRows = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return sortedRows.slice(startIndex, endIndex);
+  };
+
   
   return (
     <Box className="bx">
@@ -96,7 +107,7 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
           </Tr>
         </Thead>
         <Tbody className="tbdy">
-          {sortedRows.map((row, rowIndex) => (
+          {paginateRows().map((row, rowIndex) => (
             <Tr key={rowIndex} className="tr">
               {row.map((cell, cellIndex) => (
                 <Td key={cellIndex} className="td">{
@@ -108,6 +119,32 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
         </Tbody>
       </Table>
       </TableContainer>
+      {pagination && (
+        <Box mt={4} display="flex" justifyContent="flex-end" style={{marginRight: "1rem"}}>
+          <Button
+          size="sm"
+          color="blue.600"
+          style={{ border: "2px solid #2B6CB0", backgroundColor: 'white'}}
+          onClick={() => setCurrentPage((prev) => Math.max(prev-1, 1))}
+          disabled={currentPage == 1}
+          >
+             Previous
+          </Button>
+          <Text mx={2}>{currentPage}</Text>
+          <Button
+          size="sm"
+          color="blue.600"
+          style={{ border: "2px solid #2B6CB0", backgroundColor: 'white'}}
+          onClick={() => 
+          setCurrentPage((prev) => Math.min(prev + 1, Math.ceil(sortedRows.length / itemsPerPage)))
+          }
+
+          disabled={currentPage === Math.ceil(sortedRows.length / itemsPerPage)}
+          >
+            Next
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 };
