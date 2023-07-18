@@ -17,7 +17,6 @@ const rows = [
   ["2023-10-12", "098", "soni@mail.com", "Soni Rawat", "Mobile App", "Pending", "Select"],
   ["2023-11-17", "098", "santoshi@mail.com", "Santoshi Rawat", "Mobile App", "Pending", "Select"],
   ["2023-08-20", "098", "rashika@mail.com", "Rashika Sharma", "Website", "Completed", "Select"],
-  // Add more rows as needed
 ];
 
 const Home: React.FC = () => {

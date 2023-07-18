@@ -76,13 +76,14 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
       <Spacer />
       {searchable && (
         <div className="search">
-        <InputGroup mb={4}>
-          <InputLeftElement pointerEvents="none" children={<SearchIcon color="tomato" />} />
+        <InputGroup mb={4} style={{ border: '1px solid #2B6CB0', borderRadius: '12px'}}>
+          <InputLeftElement pointerEvents="none" children={<SearchIcon color="blue.600" />} />
           <Input 
           variant='outline'
           width= {170}
           placeholder="Search"
           value={searchValue}
+          style={{ border: '1px solid #2B6CB0', borderRadius: '12px'}}
           onChange={(e) => setSearchValue(e.target.value)}
           />
         </InputGroup>
