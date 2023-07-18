@@ -45,9 +45,9 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
   
   return (
     <Box className="bx">
-      {caption && <Text fontWeight="bold">{caption}</Text>}
+      {caption && <Text className="text" fontWeight="bold">{caption}</Text>}
       <TableContainer className="tc">
-      <Table variant='striped' colorScheme='teal' className="table">
+      <Table variant='striped' colorScheme='red' className="table">
         <Thead className="head">
           <Tr className="Trw">
             {headers.map((header, index) => (
@@ -67,7 +67,9 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
           {sortedRows.map((row, rowIndex) => (
             <Tr key={rowIndex} className="tr">
               {row.map((cell, cellIndex) => (
-                <Td key={cellIndex} className="td">{cell}</Td>
+                <Td key={cellIndex} className="td">{
+                   cell
+                }</Td>
               ))}
             </Tr>
           ))}

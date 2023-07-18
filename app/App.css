@@ -14,13 +14,21 @@
 
 .tc{
     /* border: 2px solid black; */
-    width: 97.7vw;
+    width: 100vw;
 }
 
 .table{
-    border: 2px solid black;
-    width: 97.7vw;
+    /* border: 2px solid teal; */
+    width: 100vw;
     height: 40vw;
+    /* margin-left: .3rem; */
+    margin-top: 1rem;
+}
+
+.text{
+   /* margin-left: 1rem; */
+   margin-top: 12px;
+   font-weight: bold;
 }
 
 .Trw{
@@ -28,27 +36,23 @@
 }
 
 .Thead{
-    border: 2px solid black;
+    border: 1px solid ;
     text-align: center;
-    padding: 10px;
+    /* align-items: center; */
+    /* padding-bottom: 20px; */
     font-weight: 1000;
     color: gray;
 }
 
 .tbdy{
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 .tr{
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 .td{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     text-align: center;
-}
-
-.line{
-    border: 1px solid black;
-    /* width: 97.7vw; */
 }
