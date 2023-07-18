@@ -20,8 +20,8 @@ const rows = [
 
 const Home: React.FC = () => {
   return (
-    <Flex className='flex'  h="100vh">
-      <DataTable headers={headers} rows={rows} caption="BOOKINGS" sortable />
+    <Flex className='flex' h="80vh">
+      <DataTable headers={headers} rows={rows} caption="BOOKINGS" sortable searchable pagination />
     </Flex>
   )
 }

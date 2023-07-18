@@ -9,18 +9,25 @@
 }
 
 .flex{
-    /* border: 2px solid black; */
+    /* border: 1px solid #ebf8ff; */
+    width: 70vw;
+    margin: auto;
+    background-color: white;
+    margin-top: 3rem;
+    border-radius: 12px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
 }
 
 .tc{
     /* border: 2px solid black; */
-    width: 100vw;
+    width: 70vw;
 }
 
 .table{
     /* border: 2px solid teal; */
-    width: 100vw;
-    height: 40vw;
+    width: 100%;
+    height: 30vw;
     /* margin-left: .3rem; */
     margin-top: 1rem;
 }
@@ -29,6 +36,8 @@
    /* margin-left: 1rem; */
    margin-top: 12px;
    font-weight: bold;
+   font-size: 20px;
+   margin-left: 1.5rem;
 }
 
 .Trw{
@@ -44,15 +53,28 @@
     color: gray;
 }
 
-.tbdy{
-    /* border: 2px solid black; */
-}
-
-.tr{
-    /* border: 2px solid black; */
-}
 
 .td{
     /* border: 2px solid black; */
     text-align: center;
+    color: black;
+}
+
+.div{
+    /* border: 2px solid black; */
+   display: flex;
+   position: relative;
+   margin-bottom: 1rem;
+   align-items: center;
+    /* text-align: center;
+    justify-content: space-around; */
+}
+
+.search{
+    /* border: 2px solid red; */
+    position: absolute;
+    right: 0;
+    top: 2;
+    margin-top: 2rem;
+    margin-right: 1.7rem;
 }

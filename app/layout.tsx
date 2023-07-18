@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body style={{ background: '#2b6cb0'}}>
       <ChakraProvider>
         {children}
         </ChakraProvider>

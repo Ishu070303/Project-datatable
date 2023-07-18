@@ -1,6 +1,7 @@
 "use client";
 import { Table, Thead, Tbody, Tr, Th, Td, TableContainer} from "@chakra-ui/table";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Flex, Input, InputGroup, InputLeftElement, Spacer, Text } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 
 interface DataTableProps {
@@ -9,11 +10,13 @@ interface DataTableProps {
   caption?: string;
   sortable?: boolean;
   pagination?: boolean;
+  searchable?: boolean; //Adding a searchable property
 }
 
-const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable, pagination }) => {
+const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable, pagination, searchable }) => {
   const [sortedColumn, setSortedColumn] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
+  const [searchValue, setSearchValue] = useState("");
 
   const handleSort = (column: string) => {
     if (!sortable) return;
@@ -26,7 +29,18 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
     }
   };
 
-  const sortedRows = [...rows].sort((a, b) => {
+  //Search implemented
+  const filterRows = () => {
+    if(!searchValue) return rows;
+
+    return rows.filter((row) => 
+     row.some((cell) => 
+       typeof cell === "string" && cell.toLowerCase().includes(searchValue.toLowerCase())
+     )
+    );
+  };
+
+  const sortedRows = [...filterRows()].sort((a, b) => {
     if (!sortedColumn) return 0;
   
     const columnIndex = headers.indexOf(sortedColumn);
@@ -42,12 +56,30 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
   
     return 0;
   });
+
   
   return (
     <Box className="bx">
+      <Flex className="div">
       {caption && <Text className="text" fontWeight="bold">{caption}</Text>}
+      <Spacer />
+      {searchable && (
+        <div className="search">
+        <InputGroup mb={4}>
+          <InputLeftElement pointerEvents="none" children={<SearchIcon color="tomato" />} />
+          <Input 
+          variant='outline'
+          width= {170}
+          placeholder="Search"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+          />
+        </InputGroup>
+        </div>
+      )}
+      </Flex>
       <TableContainer className="tc">
-      <Table variant='striped' colorScheme='red' className="table">
+      <Table variant='simple' className="table">
         <Thead className="head">
           <Tr className="Trw">
             {headers.map((header, index) => (
