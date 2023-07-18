@@ -130,7 +130,7 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
           >
              Previous
           </Button>
-          <Text mx={2}>{currentPage}</Text>
+          <Text className="typo" mx={5}>{currentPage}</Text>
           <Button
           size="sm"
           color="blue.600"
