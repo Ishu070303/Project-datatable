@@ -1,8 +1,9 @@
 "use client";
 import { Table, Thead, Tbody, Tr, Th, Td, TableContainer} from "@chakra-ui/table";
 import { Box, Flex, Input, InputGroup, InputLeftElement, Spacer, Text, Button } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
+import { SearchIcon, ArrowRightIcon, ArrowLeftIcon, WarningTwoIcon, CheckIcon, RepeatIcon } from "@chakra-ui/icons";
 import { useState } from "react";
+import { Paid } from "@mui/icons-material";
 
 interface DataTableProps {
   headers: string[];
@@ -117,15 +118,16 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
                 <Td key={cellIndex} className="td">
                   {headers[cellIndex] == "STATUS" ? (
                     <Button
-                    color="White"
-                    colorScheme={cell === "Paid" ? "green" : cell === "Failed"? "red" : "yellow"}
+                    style={{backgroundColor: `${cell === "Paid" ? "#9AE6B4" : cell == "Failed" ? "#FEB2B2" : "#FAF089" }` , fontWeight : "500"}}
+                    color={cell === "Paid" ? "green" : cell === "Failed"? "red" : "black"}
                     size="sm"
                     borderRadius="3xl"
+                    rightIcon={cell == "Paid" ? <CheckIcon /> : cell === "Failed" ? <WarningTwoIcon /> : <RepeatIcon />}
                     >
                       {cell}
                     </Button>
                   ) : headers[cellIndex] === "SELECT" ? (
-                    <Button colorScheme="blue" size="sm" borderRadius="md">
+                    <Button style={{ backgroundColor: '#BEE3F8', fontWeight: '300'}} size="sm" borderRadius="md">
                       {cell}
                     </Button>
                   ) : (
@@ -143,6 +145,7 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
           <Button
           size="sm"
           color="blue.600"
+          leftIcon={<ArrowLeftIcon />}
           style={{ border: "2px solid #2B6CB0", backgroundColor: 'white'}}
           onClick={() => setCurrentPage((prev) => Math.max(prev-1, 1))}
           disabled={currentPage == 1}
@@ -152,6 +155,7 @@ const DataTable: React.FC<DataTableProps> = ({ headers, rows, caption, sortable,
           <Text className="typo" mx={5}>{currentPage}</Text>
           <Button
           size="sm"
+          rightIcon={<ArrowRightIcon/>}
           color="blue.600"
           style={{ border: "2px solid #2B6CB0", backgroundColor: 'white'}}
           onClick={() => 
