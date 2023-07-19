@@ -10,7 +10,7 @@ Next-Table is a customizable DataTable component built using React and Chakra UI
 - TypeScript: A typed superset of JavaScript that adds static typing to the language, improving code quality and developer productivity.
 
 ## Deployment
-[]()
+Project Link - [https://project-datatable.vercel.app/](https://project-datatable.vercel.app/)
 
 ## Installation
 
