@@ -56,11 +56,4 @@ Next-Table supports the following optional props:
 
 ## Contributions
 
-Contributions to Next-Table are welcome! If you find any bugs or want to add new features, please feel free to submit a pull request.
-
-Feel free to customize and expand this README file further, based on your project's specific details and requirements. It provides essential information about the project, technologies used, usage instructions, and encourages contributions from the community.
-
-
-
-
-
+Contributions to Next-Table are welcome! If you find any bugs or want to add new features, please feel free to submit a pull request❤️.
