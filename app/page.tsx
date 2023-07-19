@@ -1,3 +1,9 @@
+/*
+This code is a React component called Home that displays a spinner while loading data for a DataTable component. 
+After a simulated 1-second delay, it replaces the spinner with the DataTable, showing tabular data with sorting, 
+searching, pagination, and conditional styling features.
+*/
+
 "use client";
 import React, {useState, useEffect} from "react";
 import DataTable from "./DataTable";

@@ -1,3 +1,11 @@
+
+/* This code is a React component called DataTable that displays tabular data with features like sorting, 
+searching, pagination, and conditional styling. It takes in headers and rows as props and allows users 
+to interact with the data using the provided features. The data can be sorted by clicking on the headers, 
+searched using the search bar, and displayed in paginated form with navigation buttons. The STATUS column has 
+conditional styling based on the cell value ("Paid", "Failed", or other) using Chakra UI components. */
+
+
 "use client";
 import {
   Table,
@@ -17,8 +25,8 @@ import {
   Spacer,
   Text,
   Button,
-  Select,
 } from "@chakra-ui/react";
+
 import {
   SearchIcon,
   ArrowRightIcon,
@@ -27,6 +35,7 @@ import {
   CheckIcon,
   RepeatIcon,
 } from "@chakra-ui/icons";
+
 import { useEffect, useRef, useState } from "react";
 
 interface DataTableProps {
