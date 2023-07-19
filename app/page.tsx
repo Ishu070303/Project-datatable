@@ -203,7 +203,7 @@ const Home: React.FC = () => {
       <DataTable
         headers={headers}
         rows={rows}
-        caption="BOOKINGS"
+        caption="RESULTS"
         sortable
         searchable
         pagination

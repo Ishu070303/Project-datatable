@@ -107,13 +107,13 @@ const DataTable: React.FC<DataTableProps> = ({
     const handleColumnResize = (entries: ResizeObserverEntry[]) => {
       if (tableRef.current) {
         const tableWidth = tableRef.current.offsetWidth;
-        const numebrOfCoulmns = headers.length;
+        const numberOfCoulmns = headers.length;
         const selectedColumnIndex = parseInt(selectedFilter, 10);
 
         //calculate the new column width based on the selected filter options
         const newColumnWidths = headers.map((_, index) => {
-          if (resizable && selectedColumnIndex === index) {
-            return `${tableWidth / numebrOfCoulmns}px`;
+          if (resizable && !isNaN(selectedColumnIndex) && selectedColumnIndex === index) {
+            return `${tableWidth / numberOfCoulmns}px`;
           }
 
           return "auto";
@@ -213,7 +213,7 @@ const DataTable: React.FC<DataTableProps> = ({
         )}
       </Flex>
       <TableContainer className="tc">
-        <Table variant="simple" className="table">
+        <Table variant="striped" color="blue.50" className="table">
           <Thead className="head">
             <Tr className="Trw">
               {headers.map((header, index) => (
