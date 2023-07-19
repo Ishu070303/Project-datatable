@@ -1,80 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
-*{
-    font-family: 'Montserrat', sans-serif;
+* {
+  font-family: "Montserrat", sans-serif;
 }
 
-
-.flex{
-    /* border: 1px solid #ebf8ff; */
-    width: 80vw;
-    margin: auto;
-    background-color: white;
-    margin-top: 3rem;
-    border-radius: 12px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-
+.flex {
+  /* border: 1px solid #ebf8ff; */
+  width: 80vw;
+  margin: auto;
+  background-color: white;
+  margin-top: 3rem;
+  border-radius: 12px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.tc{
-    /* border: 2px solid black; */
-    width: 80vw;
+.tc {
+  /* border: 2px solid black; */
+  width: 80vw;
 }
 
-.table{
-    /* border: 2px solid teal; */
-    width: 100%;
-    height: 30vw;
-    /* margin-left: .3rem; */
-    margin-top: 1rem;
+.table {
+  /* border: 2px solid teal; */
+  width: 100%;
+  height: 30vw;
+  /* margin-left: .3rem; */
+  margin-top: 1rem;
 }
 
-.text{
-   /* margin-left: 1rem; */
-   margin-top: 12px;
-   font-weight: bold;
-   font-size: 20px;
-   margin-left: 1.5rem;
-   color:  #2B6CB0;
+.text {
+  /* margin-left: 1rem; */
+  margin-top: 12px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 1.5rem;
+  color: #2b6cb0;
 }
 
-.Thead{
-    border-top: 1px solid ;
-    text-align: center;
-    /* align-items: center; */
-    /* padding-bottom: 20px; */
-    font-weight: 1000;
-    color: gray;
+.Thead {
+  border-top: 1px solid;
+  text-align: center;
+  /* align-items: center; */
+  /* padding-bottom: 20px; */
+  font-weight: 1000;
+  color: gray;
 }
 
-
-.td{
-    /* border: 2px solid black; */
-    text-align: center;
-    color: black;
+.td {
+  /* border: 2px solid black; */
+  text-align: center;
+  color: black;
 }
 
-.div{
-    /* border: 2px solid black; */
-   display: flex;
-   position: relative;
-   margin-bottom: 1rem;
-   align-items: center;
-    /* text-align: center;
+.div {
+  /* border: 2px solid black; */
+  display: flex;
+  position: relative;
+  margin-bottom: 1rem;
+  align-items: center;
+  /* text-align: center;
     justify-content: space-around; */
 }
 
-.search{
-    /* border: 2px solid red; */
-    position: absolute;
-    right: 0;
-    top: 2;
-    margin-top: 2rem;
-    margin-right: 1.7rem;
-    
+.search {
+  /* border: 2px solid red; */
+  position: absolute;
+  right: 0;
+  top: 2;
+  margin-top: 2rem;
+  margin-right: 10rem;
 }
 
-.typo{
-    font-size: 20px;
-    font-weight: bold;
+.resize {
+  margin-top: 1rem;
+  margin-right: 1.5rem;
+  /* border: 2px solid #2B6CB0; */
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.typo {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 0.3rem;
 }
