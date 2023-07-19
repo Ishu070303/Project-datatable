@@ -1,7 +1,7 @@
 "use client";
-import React from "react";
+import React, {useState, useEffect} from "react";
 import DataTable from "./DataTable";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Button, Spinner } from "@chakra-ui/react";
 
 import "./App.css";
 
@@ -198,17 +198,36 @@ const rows = [
 ];
 
 const Home: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState<(string | JSX.Element)[][]>([]);
+
+  useEffect(() => {
+    // Simulate a 1-second loading delay
+    const timer = setTimeout(() => {
+      setData(rows); 
+      setIsLoading(false); // Set isLoading to false to stop the spinner
+    }, 1000);
+
+    // Clear the timeout when the component is unmounted
+    return () => clearTimeout(timer);
+  }, []);
+
+
   return (
-    <Flex className="flex" h="87vh">
-      <DataTable
-        headers={headers}
-        rows={rows}
-        caption="RESULTS"
-        sortable
-        searchable
-        pagination
-        resizable
-      />
+   <Flex className="flex" h="87vh">
+      {isLoading ? (
+        <Spinner className="spinner" size="xl" color="blue.500" />
+      ) : (
+        <DataTable
+          headers={headers}
+          rows={data}
+          caption="RESULTS"
+          sortable
+          searchable
+          pagination
+          resizable
+        />
+      )}
     </Flex>
   );
 };

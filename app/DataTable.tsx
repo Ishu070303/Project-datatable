@@ -46,14 +46,11 @@ const DataTable: React.FC<DataTableProps> = ({
   sortable,
   pagination,
   searchable,
-  resizable,
 }) => {
   const [sortedColumn, setSortedColumn] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [searchValue, setSearchValue] = useState("");
-  const [selectedFilter, setSelectedFilter] = useState<string>("auto");
-
-  const tableRef = useRef<HTMLTableElement>(null); //Ref to the table element
+  console.log(rows);
 
   //For pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -102,62 +99,12 @@ const DataTable: React.FC<DataTableProps> = ({
     return 0;
   });
 
-  useEffect(() => {
-    //Function to handle resizing
-    const handleColumnResize = (entries: ResizeObserverEntry[]) => {
-      if (tableRef.current) {
-        const tableWidth = tableRef.current.offsetWidth;
-        const numberOfCoulmns = headers.length;
-        const selectedColumnIndex = parseInt(selectedFilter, 10);
-
-        //calculate the new column width based on the selected filter options
-        const newColumnWidths = headers.map((_, index) => {
-          if (resizable && !isNaN(selectedColumnIndex) && selectedColumnIndex === index) {
-            return `${tableWidth / numberOfCoulmns}px`;
-          }
-
-          return "auto";
-        });
-
-        //Apply the new column
-        const thElements = tableRef.current.querySelectorAll("th");
-        thElements.forEach((th, index) => {
-          th.style.width = newColumnWidths[index];
-        });
-      }
-    };
-
-    if (resizable) {
-      const resizeObserver = new ResizeObserver(handleColumnResize);
-      if (tableRef.current) {
-        resizeObserver.observe(tableRef.current);
-      }
-
-      return () => {
-        if (tableRef.current) {
-          resizeObserver.unobserve(tableRef.current);
-        }
-      };
-    }
-  }, [headers, resizable, selectedFilter]);
 
   //Functiom for pagination
   const paginateRows = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     return sortedRows.slice(startIndex, endIndex);
-  };
-
-  const getDistinctValues = (columnIndex: number) => {
-    const distinctValues: string[] = [];
-    rows.forEach((row) => {
-      const cell = row[columnIndex];
-      if (typeof cell === "string" && !distinctValues.includes(cell)) {
-        distinctValues.push(cell);
-      }
-    });
-
-    return distinctValues;
   };
 
   // to display total number of rows
@@ -194,7 +141,7 @@ const DataTable: React.FC<DataTableProps> = ({
           </div>
         )}
 
-        {resizable && (
+        {/* {resizable && (
           <div className="resize">
             <Select
               width={120}
@@ -210,7 +157,7 @@ const DataTable: React.FC<DataTableProps> = ({
               ))}
             </Select>
           </div>
-        )}
+        )} */}
       </Flex>
       <TableContainer className="tc">
         <Table variant="striped" color="blue.50" className="table">
