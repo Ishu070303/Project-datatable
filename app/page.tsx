@@ -7,7 +7,7 @@ searching, pagination, and conditional styling features.
 "use client";
 import React, {useState, useEffect} from "react";
 import DataTable from "./DataTable";
-import { Flex, Button, Spinner } from "@chakra-ui/react";
+import { Flex, Spinner } from "@chakra-ui/react";
 
 import "./App.css";
 
